@@ -1,0 +1,42 @@
+
+
+<div *ngIf="isUserAuthenticated;else unauthorizedAccess">
+    <div class="text-center">
+        <h1>
+            Welcome to home my friend
+        </h1>
+        <button (click)="onLogout()">LOGOUT</button>
+    <hr>
+    <button (click)="onGetUser()">Get Users</button>
+    <div *ngIf="showUserInfo">
+    
+    <div >
+        <div class="card" style="width: 18rem;">
+            <div class="card-header text-primary">
+                User Details
+            </div>
+            <ul class="list-group list-group-flush ">
+                <li class="list-group-item ">{{userDetails.username}}</li>
+                <li class="list-group-item"> {{userDetails.firstname}} </li>
+                <li class="list-group-item">{{userDetails.lastname}}</li>
+                <li class="list-group-item">{{userDetails.email}}</li>
+                <li class="list-group-item">{{userDetails.phone}}</li>
+                <li class="list-group-item">{{userDetails.dob}}</li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    <ng-template #unauthorizedAccess>
+    <div class="ml-4">
+        <div class="card text-center justify-content-center" style="width:100%;">
+            <div class="card-body justify-content-center">
+              <h5 class="card-title text-danger">unauthorizedAccess!</h5>
+              <h1 class="card-text text-primary">Not an authorized user</h1>
+              <a href="#" class="btn btn-success">Login</a>
+            </div>
+          </div>
+    </div>
+    </ng-template>
